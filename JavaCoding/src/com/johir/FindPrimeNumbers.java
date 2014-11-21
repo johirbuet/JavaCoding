@@ -23,6 +23,7 @@ public class FindPrimeNumbers {
 
 	}
 	
+	//This method will check whether the number is prime and return true if its prime.
 	public static boolean isPrime(int n){
 		if(n==1)
 			return false;
