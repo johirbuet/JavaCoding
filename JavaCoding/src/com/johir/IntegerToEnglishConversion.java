@@ -8,6 +8,8 @@ package com.johir;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class IntegerToEnglishConversion {
 
 	/**
@@ -19,9 +21,12 @@ public class IntegerToEnglishConversion {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc =new Scanner(System.in);
-		System.out.println("Enter the number: ");
-		int input=sc.nextInt();
-		System.out.println(translateMillions(input));
+		//System.out.println("Enter the number: ");
+		//int input=sc.nextInt();
+		String input=JOptionPane.showInputDialog("Enter The Number");
+		int num=Integer.parseInt(input);
+		//System.out.println(translateMillions(input));
+		JOptionPane.showMessageDialog(null, "Converted in English Words\n"+num+"= "+translateMillions(num),"Result", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 	public static String translateNum(int num){ 
