@@ -19,8 +19,9 @@ public class IntegerToEnglishConversion {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc =new Scanner(System.in);
+		System.out.println("Enter the number: ");
 		int input=sc.nextInt();
-		System.out.println(translateThousands(input));
+		System.out.println(translateMillions(input));
 
 	}
 	public static String translateNum(int num){ 
@@ -42,7 +43,27 @@ public class IntegerToEnglishConversion {
 			return translateHundred(num);
 		int thousands=num/1000;
 		int hundredchunk=num%1000;
+		if(thousands<20)
 		return num_to_text[thousands]+" thousand "+translateHundred(hundredchunk);
+		else
+		{
+			return tens_to_text[thousands/10]+" "+ num_to_text[thousands%10]+" thousand "+translateHundred(hundredchunk);
+		}
 	}
+	public static String translateLakhs(int num){
+		if(num<100000)
+			return translateThousands(num);
+		int lakhs=num/100000;
+		int thousandchunk=num%100000;
+		return num_to_text[lakhs]+" lakh "+translateThousands(thousandchunk);
+	}
+	public static String translateMillions(int num){
+		if(num<1000000)
+			return translateLakhs(num);
+		int millions=num/1000000;
+		int lakhchunk=num%1000000;
+		return num_to_text[millions]+" million "+translateLakhs(lakhchunk);
+	}
+	
 
 }
